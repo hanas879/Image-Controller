@@ -1,9 +1,11 @@
 import json
 import os.path
+import wget
 
-if os.path.isfile("sources.json") == False:
-    with open("sources.json","w") as f:
-        f.write("{}")
+def checkJSON():
+    if os.path.isfile("sources.json") == False:
+        with open("sources.json","w") as f:
+            f.write("{}")
 
 def saveSources():
     with open("sources.json") as f:
@@ -13,3 +15,6 @@ def saveSources():
 
     with open("sources.json", "w") as f:
         json.dump(sources, f, indent=2)
+
+def downloadFile(url):
+    wget.download(url)
