@@ -13,7 +13,7 @@ def grabIso(url):
     links = news.find_all("a")
     for i in links:
         if ".iso" in i["href"] and "64" in i["href"]:
-            print(i["href"])
+            return i["href"]
             break
 
 
@@ -34,4 +34,6 @@ def saveSources():
 
 
 def downloadFile(url):
+    print("Downloading: " + url)
+    print()
     wget.download(url)
